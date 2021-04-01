@@ -10,7 +10,5 @@ then
     exit $retval
 fi
 
-# Source any additional environment that was added by the startup script
-. startup.env
-
-exec /sbin/runsvdir -P /etc/service/enabled
+RUNSVDIR=$(/usr/bin/which runsvdir)
+exec ${RUNSVDIR} -P /etc/service/enabled
